@@ -1,0 +1,65 @@
+
+<div class="d-flex justify-content-center">
+    <ul class="pagination">
+        {% if page_obj.paginator.num_pages < 6 %}
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" ><</a>
+        </li>
+        {% endif %}
+
+        {% for p in page_obj.paginator.page_range %}
+        {% if p == page_obj.number %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" >></a>
+        </li>
+        {% endif %}
+        {% else %}
+        {% if page_obj.has_previous %}
+        {% if page_obj.number > 2 %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1" >&#171;</a>
+        </li>
+        {% endif %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" ><</a>
+        </li>
+        {% endif %}
+
+        {% for p in page_obj.paginator.page_range%}
+        {% if p == page_obj.number %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" >></a>
+        </li>
+        {% if page_obj.number|add:1 < page_obj.paginator.num_pages %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" >&#187;</a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+    </ul>
+</div>

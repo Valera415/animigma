@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <!-- Постер анимешки -->
+    <div class="col-lg-3 mb-4">
+        <img src="{% static 'content/img/unnamed.jpg' %}" alt="Poster" class="img-fluid">
+    </div>
+    <div class="col-lg-9 mb-4">
+        <h2>Название аниме</h2>
+        <ul>
+            <li class="mb-3">Год выхода: 2023</li>
+            <li class="mb-3">Возраст: 18+</li>
+            <li class="mb-3">Кол-во просмотров: 10000</li>
+            <li class="mb-3">Рейтинг: 8.5</li>
+            <li class="mb-3">Жанры: Фэнтези, Драма, Романтика</li>
+        </ul>
+    </div>
+    <div class="ml-3">
+        <p>
+            Описание аниме. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nulla convallis libero quis egestas lacinia.
+        </p>
+        <a href="" class="btn btn-primary">1</a>
+        <a href="" class="btn btn-primary">Перейти к сериям</a>
+        <a href="" class="btn btn-primary">Перейти к сериям</a>
+    </div>
+</div>
+
+
+{% endblock %}
